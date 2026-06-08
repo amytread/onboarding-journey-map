@@ -300,7 +300,7 @@ const N = null;
 const LANES = [
   {role:"Admin", kind:"internal", applies:ALL, sum:"Sets up the account & master data, then lives in reporting.", cells:[
     C(["Create the company & set the hierarchy: flat vs parent/child","Activate account; invite dispatchers, billing & drivers"],
-      {gate:"Flat vs parent/child? Split ONLY to truly hide one location's data from another's users — otherwise keep one account. Resolve before Stage 2.",
+      {gate:"Flat vs parent/child? Split ONLY to truly hide one location's data from another's users — otherwise keep one account.",
        know:"Default to ONE account — parent/child adds complexity & mis-invites, and parent-level billing isn't handled well. Deactivate ex-employee logins.",
        eg:"Leah genuinely needed it (2 states); Igel a child account for its DBM subsidiary — the exceptions, not the default.",
        tmpl:"welcome"}),
