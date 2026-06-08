@@ -45,6 +45,37 @@
   .egtag{font-size:9px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);background:var(--external);padding:1px 6px;border-radius:4px;}
 
   /* insights */
+  .qpanel{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:20px 0 4px;padding:14px 18px;background:var(--navy-2);border:1px solid var(--line);border-radius:13px;}
+  .qpanel .qlbl{font-size:12.5px;font-weight:800;letter-spacing:.03em;color:var(--yellow);margin-right:6px;}
+  .qtog{cursor:pointer;border:1px solid var(--line);background:var(--navy-3);color:var(--ink);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:9px;transition:.15s;}
+  .qtog:hover{border-color:var(--muted-2);}
+  .qtog .qv{font-size:10px;font-weight:800;padding:1px 8px;border-radius:999px;}
+  .qtog.yes{border-color:#3a6b54;} .qtog.yes .qv{background:rgba(111,207,151,.22);color:#9be8bf;}
+  .qtog.no{opacity:.55;} .qtog.no .qv{background:rgba(255,140,140,.18);color:#ffb3b3;}
+  .modtag{font-size:9.5px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;margin-top:11px;display:flex;align-items:center;gap:6px;color:var(--muted-2);}
+  .modtag .md{width:9px;height:9px;border-radius:2px;flex:0 0 auto;}
+  .fgate{margin-top:11px;font-size:11px;line-height:1.5;color:#ffd7a8;background:rgba(255,184,107,.1);border:1px solid #7a5a2e;border-left:3px solid var(--external);border-radius:7px;padding:8px 10px;}
+  .fgate::before{content:"⛔ Decide first — ";font-weight:800;color:var(--external);}
+  /* module catalog under the map */
+  .modcat{margin:38px 0 0;max-width:1100px;}
+  .modcat h2{font-size:19px;font-weight:800;color:#fff;margin:0 0 4px;}
+  .modcat .sub{font-size:12.5px;color:var(--muted-2);margin-bottom:16px;}
+  /* one full-width expandable row per module, in order */
+  .modrow{background:var(--navy-2);border:1px solid var(--line);border-left:4px solid var(--internal);border-radius:11px;margin-bottom:10px;overflow:hidden;}
+  .modrow>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:14px 18px;}
+  .modrow>summary::-webkit-details-marker{display:none;}
+  .modrow>summary::before{content:"▸";color:var(--muted-2);font-size:12px;flex:0 0 auto;transition:transform .12s;}
+  .modrow[open]>summary::before{transform:rotate(90deg);}
+  .modrow .mn{flex:0 0 auto;font-size:12px;font-weight:800;letter-spacing:.04em;color:var(--navy);background:var(--yellow);border-radius:6px;padding:3px 9px;}
+  .modrow .mt{flex:0 0 200px;font-size:15px;font-weight:800;color:#fff;}
+  .modrow .mf{flex:1 1 auto;font-size:12.5px;color:var(--muted);line-height:1.45;}
+  .modrow .mw{flex:0 0 auto;display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-end;}
+  .modrow .mwc{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--ink);background:var(--navy-3);white-space:nowrap;}
+  .modrow .mdetail{padding:4px 18px 16px 44px;border-top:1px solid var(--line);}
+  .modrow .mdlbl{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2);margin:12px 0 8px;}
+  .modrow .mdetail ul{margin:0;padding-left:18px;}
+  .modrow .mdetail li{font-size:13px;color:var(--ink);line-height:1.5;margin-bottom:6px;}
+  @media(max-width:760px){ .modrow>summary{flex-wrap:wrap;} .modrow .mt{flex-basis:auto;} .modrow .mw{justify-content:flex-start;} }
   .insights{background:var(--navy-2);border:1px solid var(--line);border-left:3px solid var(--yellow);border-radius:13px;padding:17px 22px;margin:20px 0 6px;}
   .insights .ih{font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--yellow);margin-bottom:11px;}
   .insights .ih span{font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted-2);font-size:11.5px;}
@@ -69,17 +100,18 @@
   .ac.h{color:var(--t-hauler);} .ac.b{color:var(--t-broker);} .ac.c{color:var(--t-construction);} .ac.all{color:var(--muted-2);}
 
   .swim{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--navy-2);}
-  .swimi{min-width:2020px;}
-  .ruler{display:grid;grid-template-columns:220px repeat(6,300px);position:sticky;top:0;z-index:6;background:var(--navy-3);border-bottom:1px solid var(--line);}
+  .swimi{min-width:2320px;position:relative;}
+  svg.handoffs text{paint-order:stroke;stroke:rgba(15,33,41,.85);stroke-width:3px;}
+  .ruler{display:grid;grid-template-columns:220px repeat(7,300px);position:sticky;top:0;z-index:6;background:var(--navy-3);border-bottom:1px solid var(--line);}
   .ruler .rlabel{padding:13px 14px;font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted-2);display:flex;align-items:center;position:sticky;left:0;background:var(--navy-3);z-index:2;}
   .rstage{padding:13px 14px;border-left:1px solid var(--line);}
   .rstage .rn{width:26px;height:26px;border-radius:50%;background:var(--yellow);color:var(--navy);font-weight:800;font-size:13px;display:inline-flex;align-items:center;justify-content:center;margin-right:8px;vertical-align:middle;}
   .rstage .snm{font-size:13.5px;font-weight:800;color:var(--white);}
   .rstage .ssub{font-size:10px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.05em;margin-top:6px;}
 
-  .lane{display:grid;grid-template-columns:220px repeat(6,300px);position:relative;border-bottom:1px solid var(--line);}
+  .lane{display:grid;grid-template-columns:220px repeat(7,300px);position:relative;border-bottom:1px solid var(--line);}
   .lane:last-child{border-bottom:none;}
-  .lane .llabel{position:sticky;left:0;z-index:3;background:var(--navy-2);border-right:1px solid var(--line);border-left:4px solid var(--internal);padding:16px 14px;display:flex;flex-direction:column;gap:8px;}
+  .lane .llabel{position:sticky;left:0;z-index:4;background:var(--navy-2);border-right:1px solid var(--line);border-left:4px solid var(--internal);padding:16px 14px;display:flex;flex-direction:column;gap:8px;}
   .lane.external .llabel{border-left-color:var(--external);background:#1c333f;}
   .lane .lrole{font-size:15px;font-weight:800;color:var(--white);}
   .lane .kind{font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;align-self:flex-start;}
@@ -87,9 +119,9 @@
   .lane .ljoin{font-size:10px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--t-hauler);}
   .lane.external .ljoin{color:var(--external);}
   /* dashed flow rail behind the cards, bounded start→end */
-  .rail{position:absolute;top:50%;transform:translateY(-50%);height:3px;z-index:0;
-    background:repeating-linear-gradient(90deg,var(--line) 0 11px,transparent 11px 17px);}
-  .cell{padding:16px 12px;z-index:1;display:flex;flex-direction:column;}
+  .rail{position:absolute;top:50%;transform:translateY(-50%);height:1.5px;z-index:0;border-radius:2px;background:rgba(166,188,198,.28);}
+  .lane.external .rail{background:rgba(166,188,198,.28);}
+  .cell{padding:16px 12px;position:relative;z-index:1;display:flex;flex-direction:column;}
   .cap{font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:6px;align-self:flex-start;}
   .cap.start{background:var(--t-hauler);color:var(--navy);margin-bottom:8px;}
   .lane.external .cap.start{background:var(--external);}
@@ -134,6 +166,48 @@
   /* dim when a type filter is active */
   .lane.dim{opacity:.14;filter:saturate(.4);} .var.dim{opacity:.16;}
 
+  /* arrowhead on the flow rail */
+  .rail::after{content:"";position:absolute;right:-1px;top:50%;transform:translateY(-50%);border:4px solid transparent;border-left-color:rgba(166,188,198,.42);border-left-width:5px;}
+  .lane.external .rail::after{border-left-color:rgba(166,188,198,.42);}
+
+  /* ===== compact FLOWCHART mode (?view=flow): clean boxes, text outside ===== */
+  body.flow .insights{display:none;}
+  body.flow .swimi{min-width:1880px;}
+  body.flow .ruler, body.flow .lane{grid-template-columns:200px repeat(7,240px);}
+  body.flow .lsum{display:none;}
+  body.flow .cell{padding:17px 12px;}
+  body.flow .rail{top:36px;transform:none;}
+  body.flow .fnode{display:flex;flex-direction:column;}
+  body.flow .fbox{background:var(--navy);border:2px solid var(--internal);border-radius:11px;padding:12px 13px;display:flex;gap:9px;align-items:center;}
+  body.flow .lane.external .fbox{border-color:var(--external);}
+  body.flow .fbox .rn{width:22px;height:22px;border-radius:50%;background:var(--yellow);color:var(--navy);font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  body.flow .fbox .ftitle{font-size:12.5px;font-weight:700;color:#fff;line-height:1.3;}
+  body.flow .fcap{font-size:10.5px;color:var(--muted);line-height:1.5;margin:11px 4px 0;}
+  body.flow .fcap div{margin-bottom:4px;}
+  body.flow .fnote{font-size:9.5px;font-weight:800;letter-spacing:.02em;margin-top:9px;}
+  body.flow .fnote.ov{color:#cdbcf0;} body.flow .fnote.ms{color:var(--yellow);}
+  body.flow .cap{display:inline-block;margin:8px 5px 0 0;}
+  body.flow .cap.start{margin-bottom:0;}
+  /* uniform dark canvas — remove the panel/band backgrounds & seams */
+  /* cap the flow height so it becomes the scroll box → the top ruler & left user column both stay pinned */
+  body.flow .swim{background:transparent;border:none;max-height:82vh;overflow:auto;}
+  /* sticky ruler + user/label column use the page color: opaque (hides content scrolling under them) but no visible band */
+  body.flow .ruler{background:var(--navy);}
+  body.flow .ruler .rlabel{background:var(--navy);}
+  body.flow .rstage{border-left:none;background:var(--navy);}
+  body.flow .llabel, body.flow .lane.external .llabel{background:var(--navy);border-right:1px solid rgba(255,255,255,.07);}
+  body.flow .lane{border-bottom:1px solid rgba(255,255,255,.07);}
+
+  @media print{ html,body{ -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+
+  /* scenario pages (?print=scenarios) */
+  #scenarios .scenario{padding:42px 46px;background:#0f2129;overflow:hidden;}
+  #scenarios .scenario + .scenario{break-before:page;}
+  #scenarios .schead{display:flex;align-items:center;gap:15px;margin-bottom:24px;}
+  #scenarios .scn{width:44px;height:44px;border-radius:50%;background:var(--yellow);color:var(--navy);font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  #scenarios .sct{font-size:24px;font-weight:800;color:#fff;letter-spacing:-.01em;}
+  #scenarios .scs{font-size:12.5px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.06em;margin-top:4px;}
+
   footer{margin-top:46px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted-2);font-size:11.5px;line-height:1.65;}
   footer b{color:var(--muted);}
 </style>
@@ -144,7 +218,7 @@
   <header class="top">
     <div class="title">
       <h1>Customer Onboarding <span class="accent">Journey Map</span></h1>
-      <p>A <b style="color:#fff">persona-based</b> map for building onboarding &amp; training content: each swimlane is a <b style="color:#fff">user</b> — the process they follow and what they uniquely need to learn. The journey starts with the owner/Admin and the team grows as it moves right (vendors, drivers &amp; foremen don't come in on day one). Where two personas need the same content, it's flagged as an <b style="color:#bb8bff">⇄ overlap</b> so you build it once. Cards carry customer-type notes, real examples, templates &amp; training links.</p>
+      <p>A <b style="color:#fff">persona-based</b> map of the onboarding journey — each swimlane is a <b style="color:#fff">user</b>: what they do, in order, with <b style="color:#bb8bff">⇄ shared</b> steps flagged so you build them once. The team grows left→right (vendors, drivers &amp; foremen don't come in on day one). <b style="color:#fff">Answer the discovery questions below</b> to tailor the journey to a customer — the lanes that don't apply drop away.</p>
     </div>
     <div class="logo">
       <img src="https://cdn.tread.io/tread-horizontal-yellow-white.svg" alt="Tread" />
@@ -152,18 +226,15 @@
     </div>
   </header>
 
-  <div class="typesbar" id="typesbar"></div>
-  <div class="filterhint">▸ <b>Optional:</b> click a customer type to fade the flows &amp; notes that don't apply to it. Everything is shown by default.<span class="clear" id="clearf" style="display:none;">clear ✕</span></div>
-
   <div class="legend">
     <div class="k"><span class="sw" style="background:var(--internal)"></span> Internal user (customer's staff)</div>
     <div class="k"><span class="sw" style="background:var(--external)"></span> External — onboarded by the customer</div>
-    <div class="k"><span class="knowtag">needs to know</span> gotcha</div>
-    <div class="k"><span class="sw" style="background:#bb8bff"></span> ⇄ overlap — content shared with another persona</div>
-    <div class="k"><span class="egtag">seen in</span> real onboarding</div>
-    <div class="k">📧 click to expand a template</div>
-    <div class="k">🎥 Loom &middot; 📄 guide &middot; 📱 app — opens in a new tab</div>
+    <div class="k"><span style="color:var(--muted-2);font-weight:800;">▶</span> start &middot; <span style="color:var(--muted-2);font-weight:800;">■</span> end of each persona's lane</div>
+    <div class="k"><span style="color:var(--muted-2);font-weight:800;">→</span> thin line = handoff to the next persona</div>
+    <div class="k"><span style="color:#cdbcf0;font-weight:800;">⇄</span> shared = step also needed by another persona</div>
   </div>
+
+  <div class="qpanel" id="qpanel"></div>
 
   <div class="insights">
     <div class="ih">What real onboardings show <span>· grounded in 5 sessions, May–Jun 2026: George Igel, Leah Trucking, VolkerStevin, C&amp;K Excavating, Impact</span></div>
@@ -177,9 +248,11 @@
     </ul>
   </div>
 
-  <h2 class="ivtitle">Who's involved, and when <span>each swimlane has a ▶ start (where they join) and an ■ end — aligned to the 6-stage timeline up top</span></h2>
+  <h2 class="ivtitle">Who's involved, and when <span>each swimlane has a ▶ start (where they join) and an ■ end — aligned to the 7-stage timeline up top</span></h2>
 
   <div class="flow" id="flow"></div>
+
+  <div class="modcat" id="modcat"></div>
 
   <footer>
     <b>Sources:</b> Christophe's Projects/Orders/Jobs workflow video + onboarding gap analysis · "Key/Baseline Workflows" + "Welcome Email versions" docs (handoff playbook, 4-step sequence, agentic triggers, config playbook, welcome &amp; vendor templates, discovery questions) · 5 HeySam onboarding sessions (May–Jun 2026).<br/>
@@ -204,7 +277,8 @@ const STAGES = [
   {n:3, name:"Dispatch the Day",   sub:"orders · assign · send"},
   {n:4, name:"Run the Job",        sub:"field execution"},
   {n:5, name:"Approve the Work",   sub:"tickets · hours · loads"},
-  {n:6, name:"Bill & See Results", sub:"settlements · reports · go-live"},
+  {n:6, name:"Bill & Settle",      sub:"payables · settlements · invoices"},
+  {n:7, name:"Reports & Insights", sub:"P&L · payroll · job-cost · exports"},
 ];
 
 const TEMPLATES = {
@@ -225,9 +299,9 @@ const N = null;
 // One linear flow per role. cells[] aligns to STAGES; nulls are skipped in the role's flow.
 const LANES = [
   {role:"Admin", kind:"internal", applies:ALL, sum:"Sets up the account & master data, then lives in reporting.", cells:[
-    C(["Activate account from invite","Invite dispatchers, billing & drivers","Default to ONE account — child accounts only if data must be separated"],
-      {know:"Avoid parent/child unless locations/rosters/billing truly need separating — it adds complexity & mis-invites. If you must split, decide before inviting. Deactivate ex-employee logins.",
-       vars:[{t:"construction",text:"Also invite foremen; decide who approves field hours."}],
+    C(["Create the company & set the hierarchy: flat vs parent/child","Activate account; invite dispatchers, billing & drivers"],
+      {gate:"Flat vs parent/child? Split ONLY to truly hide one location's data from another's users — otherwise keep one account. Resolve before Stage 2.",
+       know:"Default to ONE account — parent/child adds complexity & mis-invites, and parent-level billing isn't handled well. Deactivate ex-employee logins.",
        eg:"Leah genuinely needed it (2 states); Igel a child account for its DBM subsidiary — the exceptions, not the default.",
        tmpl:"welcome"}),
     C(["Upload master data: customers, sites, equipment, materials, users","Set rates"],
@@ -241,7 +315,7 @@ const LANES = [
         {t:"video",l:"Upload your data",u:"https://www.loom.com/share/93b29381538143e3a1dd4f2e53e2f75a"},
         {t:"guide",l:"Creating a Project",u:"https://intercom.help/tread/en/articles/8475400-creating-a-project"},
         {t:"video",l:"Project setup & rates",u:"https://www.loom.com/share/3adcd94dbbba4e588efc2fde7096ffdf"}]}),
-    N,N,N,
+    N,N,N,N,
     C(["Review results & ROI — P&L, job cost, performance"],
       {know:"The owner's payoff: outcomes & ROI. Light-touch — Billing runs & exports the detailed reports.",
        vars:[{t:"construction",text:"Job-cost & P&L by phase is the headline metric."}],
@@ -265,7 +339,7 @@ const LANES = [
         {t:"broker",text:"Assign to VENDORS, not drivers — they re-assign to their own drivers."},
         {t:"hauler",text:"Assign internal drivers or sub-haulers."},
         {t:"construction",text:"Set running mode for on-site hauling."}],
-       overlap:"Order creation overlaps with <b>Foreman</b> — foremen also create orders, but on the mobile-specific (RPM) form.",
+       overlap:"Order creation overlaps with <b>Foreman</b> — foremen also create orders, but on the mobile-specific order form.",
        res:[{t:"video",l:"Create Order & dispatch (full workflow)",u:"https://www.loom.com/share/8e2c055ce4394ecab01293ba0ed291da"}],
        milestone:"⛳ First Order dispatched"}),
     C(["Watch live map, breadcrumbs & order metrics","Communicate changes"],
@@ -279,7 +353,7 @@ const LANES = [
     C(["Create Orders from the mobile app"],
       {know:"Use the mobile-specific order form. Assign the foreman at the ORDER level (not project) so each sees only their own orders.",
        eg:"Igel: foremen set per-order to keep their mobile view clean.",
-       overlap:"Order creation overlaps with <b>Dispatcher</b> — same concept, but foremen use the mobile RPM form, not the web flow.",
+       overlap:"Order creation overlaps with <b>Dispatcher</b> — same concept, but foremen use the mobile order form, not the web flow.",
        res:[{t:"guide",l:"Foreman: create order requests",u:"https://docs.tread.ai/workflows/foreman-approval-flow-sign-off-on-driver-hours"}]}),
     C(["View job progress on site"], {know:"Real-time loads / cycle on their phone."}),
     C(["Approve driver hours (Time Logs / shifts)","Enter phase code at approval"],
@@ -319,18 +393,22 @@ const LANES = [
         {t:"video",l:"Job approvals",u:"https://www.loom.com/share/7712f53b1e0f4abda767ea203c1a7e7b"},
         {t:"video",l:"Hourly job approvals",u:"https://www.loom.com/share/3d26cb0268c24b7b8911729f64189668"},
         {t:"video",l:"Driver shift-hour approvals",u:"https://www.loom.com/share/9780503ee86d4139aa8212db58c733c9"}]}),
-    C(["Payables & settlements (payable + receivable); create & send invoices","Run P&L, payroll, payables & job-cost reports","Export tickets / hours / loads to CSV / PDF"],
-      {know:"Settlement (weekly) vs itemized (per job); add-ons & fuel surcharge. Reports trigger on first Reports-tab view; export guide after first invoice. Datavinci-first for reporting.",
+    C(["Payables & settlements (payable + receivable)","Create & send invoices"],
+      {know:"Settlement (weekly) vs itemized (per job); handle add-ons & fuel surcharge.",
        vars:[
         {t:"broker",text:"Two sides: vendor payables + customer receivables — create both settlement types."},
-        {t:"construction",text:"Pre-build vendor payable settlements before the vendor's invoice arrives — a big AP win; job-cost & P&L roll up by phase code."},
+        {t:"construction",text:"Pre-build vendor payable settlements before the vendor's invoice arrives — a big AP win."},
         {t:"hauler",text:"Driver payables & payroll."}],
-       overlap:"Shared with <b>Admin</b> — Billing runs the detailed reports & exports; the owner/Admin reviews the results & ROI.",
        res:[
         {t:"video",l:"Billing flow",u:"https://www.loom.com/share/3f8e1e961d0c404db8139cc5a1ac9dbb"},
-        {t:"video",l:"Payables & receivables invoices",u:"https://www.loom.com/share/a45c4955580342eeaecb196cb49e7696"},
-        {t:"guide",l:"Export data guide (Reports / Approve Jobs)",u:"https://docs.tread.ai"}],
-       milestone:"⛳ Go-live: first full cycle billed + data flowing out"}),
+        {t:"video",l:"Payables & receivables invoices",u:"https://www.loom.com/share/a45c4955580342eeaecb196cb49e7696"}],
+       milestone:"⛳ Go-live: first full cycle billed"}),
+    C(["Run P&L, payroll, payables & job-cost reports","Export tickets / hours / loads to CSV / PDF"],
+      {know:"Reports trigger on first Reports-tab view; export guide after first invoice. Datavinci-first for reporting. Know which export feeds payroll / accounting / ERP.",
+       vars:[{t:"construction",text:"Job-cost & P&L roll up by phase code — the headline metric."}],
+       overlap:"Shared with <b>Admin</b> — Billing runs the detailed reports & exports; the owner/Admin reviews the results & ROI.",
+       res:[{t:"guide",l:"Export data guide (Reports / Approve Jobs)",u:"https://docs.tread.ai"}],
+       milestone:"⛳ Data flowing to payroll & accounting"}),
   ]},
 
   {role:"Vendor / Sub-hauler", kind:"external", applies:ALL, sum:"Pulled in once the customer knows its roster — then sub-dispatches to its own drivers.", cells:[
@@ -371,20 +449,17 @@ const LANES = [
 ];
 
 // ---- render ----
-const typesEl = document.getElementById('typesbar');
 const flowEl = document.getElementById('flow');
-const stagerefEl = document.getElementById('stageref');
-const clearEl = document.getElementById('clearf');
-let activeType = null;
+const qpanelEl = document.getElementById('qpanel');
 
-function renderTypes(){
-  typesEl.innerHTML = TYPES.map(t=>`
-    <button class="typechip ${t.cls}" data-type="${t.id}">
-      <span class="sq" style="background:var(--t-${t.id})"></span>
-      <span><span class="tt">${t.name}</span><br><span class="td">${t.desc}</span></span>
-    </button>`).join('');
-  typesEl.querySelectorAll('.typechip').forEach(b=>b.onclick=()=>setType(b.dataset.type));
-}
+// Discovery questions about company structure → show/hide journey lanes
+const QGATE = {"Internal Driver":"internal","Vendor / Sub-hauler":"vendors","Vendor's Driver":"vendors","Foreman":"construction"};
+const QDEFS = [
+  {key:"internal",     label:"Runs its own internal drivers"},
+  {key:"vendors",      label:"Uses sub-haulers / vendors"},
+  {key:"construction", label:"Job-site work (phase codes, foremen)"},
+];
+const answers = {internal:true, vendors:true, construction:true};
 
 const END = {
   "Admin":"Sees results & ROI", "Dispatcher":"Day dispatched", "Foreman":"Hours approved",
@@ -400,10 +475,26 @@ function tmplHtml(id){
 }
 
 const ICON = {video:"🎥", guide:"📄", app:"📱"};
-function stepHtml(c, stage){
+function stepHtml(c, stage, role){
   const dos = `<ul>${c.do.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+  if(FLOW){
+    const title = c.do[0];
+    const rest = c.do.slice(1);
+    const cap = rest.length ? `<div class="fcap">${rest.map(x=>`<div>${x}</div>`).join('')}</div>` : '';
+    const ovp = (c.overlap||'').match(/<b>(.*?)<\/b>/);
+    const ovm = ovp ? `<div class="fnote ov">⇄ shared w/ ${ovp[1]}</div>` : '';
+    const msf = c.milestone ? `<div class="fnote ms">${c.milestone}</div>` : '';
+    let modtag='';
+    const mid = MODOF[role+'|'+stage.n];
+    if(mid){ const mm=MODULES[mid-1]; modtag='<div class="modtag"><span class="md" style="background:'+mm.c+'"></span>Module '+mm.id+' · '+mm.name+'</div>'; }
+    const gate = c.gate ? `<div class="fgate">${c.gate}</div>` : '';
+    return `<div class="fnode">
+      <div class="fbox"><span class="rn">${stage.n}</span><span class="ftitle">${title}</span></div>
+      ${modtag}${gate}${cap}${ovm}${msf}
+    </div>`;
+  }
   const know = c.know ? `<div class="know"><span class="knowtag">needs to know</span>${c.know}</div>` : '';
-  const vars = (c.vars||[]).map(v=>`<div class="var t-${v.t}" data-type="${v.t}"><span class="vtag">${LABEL[v.t]}</span>${v.text}</div>`).join('');
+  const gd = c.gate ? `<div class="fgate">${c.gate}</div>` : '';
   const eg = c.eg ? `<div class="eg"><span class="egtag">seen in</span>${c.eg}</div>` : '';
   const ov = c.overlap ? `<div class="overlap"><span class="otag">⇄ overlap</span>${c.overlap}</div>` : '';
   const res = (c.res||[]).length ? `<div class="res"><div class="reslbl">Training &amp; guides</div>${c.res.map(r=>`<a class="reschip ${r.t}" href="${r.u}" target="_blank" rel="noopener">${ICON[r.t]} ${r.l}</a>`).join('')}</div>` : '';
@@ -411,32 +502,81 @@ function stepHtml(c, stage){
   const ms = c.milestone ? `<div class="milestone">${c.milestone}</div>` : '';
   return `<div class="step">
     <div class="steptag"><span class="rn">${stage.n}</span><span class="nm">${stage.name}</span></div>
-    <div class="do">${dos}</div>${know}${vars}${eg}${ov}${res}${tmpl}${ms}
+    <div class="do">${dos}</div>${gd}${know}${eg}${ov}${res}${tmpl}${ms}
   </div>`;
 }
 
-const LABELW = 220, COLW = 300;
+const Q = new URLSearchParams(location.search);
+const FLOW = Q.get('view')!=='detailed';   // flowchart is the default site; ?view=detailed shows the full reference
+const SCEN = Q.get('print')==='scenarios'; // multi-page PDF: one page per scenario
+const PRINT = Q.get('print')==='1' || SCEN;
+const MODULES_ON = Q.get('modules')==='1'; // preview overlay: which training module each step belongs to
+if(FLOW && document.body) document.body.classList.add('flow');
+const LABELW = FLOW?200:220, COLW = FLOW?240:300;
+
+// training modules → each (persona, stage) step belongs to one module; catalog sits under the map
+const MODULES = [
+  {id:1, name:"Account & Master Data", c:"#6fcf97", who:["Admin"],
+   focus:"Stand up the company and load everything Tread needs before any work is built.",
+   detail:["Create the company; set hierarchy (flat vs parent/child) — split only to sequester data","Invite & role users: dispatchers, billing, drivers, foremen","Upload master data: customers, sites (with geofences), equipment/trucks, materials","Set rates (customer, vendor, driver) & key feature flags","Clean up / deactivate ex-employee logins"]},
+  {id:2, name:"Projects & Rates", c:"#56ccf2", who:["Admin","Dispatcher"],
+   focus:"Build the recurring work that daily orders are generated from.",
+   detail:["Create a Project (recurring customer work)","Project External ID vs Dispatch # (where POs live)","Default pickup/dropoff sites","Phase codes & phase-code defaults (construction)","Decide loads vs running vs tons up front"]},
+  {id:3, name:"Dispatching", c:"#74c0fc", who:["Dispatcher","Foreman"],
+   focus:"Turn a Project into a daily Order and get it to drivers/vendors.",
+   detail:["Create an Order from a Project; editing the Order vs a Job","Assign drivers or vendors; bulk assign; Send all","Job quantity UOM (loads / running / tons)","Live map, breadcrumbs & order metrics; communicate changes","Reassign before a job starts (dispatches can't be edited once received)"]},
+  {id:4, name:"Vendor Onboarding", c:"#ffb86b", needs:"vendors", who:["Admin","Dispatcher","Vendor"],
+   focus:"Get sub-haulers and their drivers onto Tread (the customer drives this).",
+   detail:["Add vendors as master data (triggers their invite) — from PRODUCTION, not Sandbox","Send invites: customer-sent vs Tread-on-behalf; bulk-upload large rosters","Use the email/SMS templates; go out days before any on-site","Vendor accepts, downloads app, sets up trucks & drivers, shares the Driver Guide","Sub-dispatch: accept → assign to own drivers → Send all"]},
+  {id:5, name:"Driver App", c:"#bb8bff", who:["Internal Driver","Vendor's Driver"],
+   focus:"The in-cab workflow — identical for internal and vendor drivers (build once).",
+   detail:["Download the app, phone sign-in, location permissions","Accept → Start → End a job","Capture scale tickets (OCR)","Add timesheets & submit hours","Capture the right phase code on multi-phase jobs"]},
+  {id:6, name:"Foreman (Field)", c:"#ff8fa3", needs:"construction", who:["Foreman"],
+   focus:"The job-site lead's mobile workflow (construction).",
+   detail:["Create Orders from the mobile order form","Assign the foreman at the ORDER level (sees only their own orders)","View job progress on site","Approve driver hours (Time Logs / shifts)","Enter phase code at approval (no hard gate yet — SOP + exception report)"]},
+  {id:7, name:"Approvals", c:"#f2c14e", who:["Billing","Foreman"],
+   focus:"Review and approve the work before it bills.",
+   detail:["Ticket review (AI ticket review + chaser)","Load confirmation","Hour approval: shift vs job vs phase code","Approve against the right rate (vendor rate vs driver rate)"]},
+  {id:8, name:"Billing & Settlements", c:"#f2994a", who:["Billing"],
+   focus:"Turn approved work into payables, receivables and settlements.",
+   detail:["Payable & receivable invoices","Add-ons & fuel surcharge (FSC)","Create payable & receivable settlements; pre-build vendor payables","Settlement (weekly) vs itemized (per job)"]},
+  {id:9, name:"Reports & Exports", c:"#9be8bf", who:["Billing","Admin"],
+   focus:"Get clean data out for billing, payroll and performance.",
+   detail:["Reports tab: P&L, driver payroll, payables, job-cost","Export tickets / hours / loads to CSV / PDF","Datavinci-first reporting; Omni embedded reports","Know which export feeds payroll / accounting / ERP"]},
+];
+const MODOF = {
+  "Admin|1":1, "Admin|2":1, "Admin|7":9,
+  "Dispatcher|2":2, "Dispatcher|3":3, "Dispatcher|4":3,
+  "Foreman|3":6, "Foreman|4":6, "Foreman|5":7,
+  "Internal Driver|3":5, "Internal Driver|4":5,
+  "Vendor / Sub-hauler|2":4, "Vendor / Sub-hauler|3":4, "Vendor / Sub-hauler|4":4,
+  "Vendor's Driver|3":5, "Vendor's Driver|4":5,
+  "Billing|5":7, "Billing|6":8, "Billing|7":9,
+};
 function laneHtml(lane){
-  const isAll = lane.applies.length===3;
-  const chips = isAll ? `<span class="ac all">All types</span>`
-    : lane.applies.map(t=>`<span class="ac ${CLS[t]}">${LABEL[t]}</span>`).join('');
-  const entry = lane.cells.findIndex(c=>c);
-  let exit = -1; lane.cells.forEach((c,i)=>{ if(c) exit=i; });
-  const railLeft = LABELW + entry*COLW + COLW/2;
-  const railW = (exit-entry)*COLW;
-  const rail = railW>0 ? `<div class="rail" style="left:${railLeft}px;width:${railW}px;"></div>` : '';
+  const active = []; lane.cells.forEach((c,i)=>{ if(c) active.push(i); });
+  const entry = active[0], exit = active[active.length-1];
+  // a directional connector (line + arrowhead) between each consecutive step
+  const PAD = FLOW?10:12;
+  let rail = '';
+  for(let k=0;k<active.length-1;k++){
+    const i=active[k], j=active[k+1];
+    const sx = LABELW + i*COLW + (COLW - PAD);   // right edge of box i
+    const ex = LABELW + j*COLW + PAD;            // left edge of box j
+    rail += `<div class="rail" style="left:${sx}px;width:${ex-sx}px;"></div>`;
+  }
   let cells='';
   lane.cells.forEach((c,i)=>{
     if(!c) return;
     const start = i===entry ? `<span class="cap start">▶ Start · joins here</span>` : '';
     const end = i===exit ? `<span class="cap end">■ ${END[lane.role]||'Done'}</span>` : '';
-    cells += `<div class="cell" style="grid-column:${i+2}">${start}${stepHtml(c, STAGES[i])}${end}</div>`;
+    const inner = FLOW ? `${stepHtml(c, STAGES[i], lane.role)}${start}${end}` : `${start}${stepHtml(c, STAGES[i], lane.role)}${end}`;
+    cells += `<div class="cell" data-role="${lane.role}" data-stage="${i+1}" style="grid-column:${i+2}">${inner}</div>`;
   });
   return `<div class="lane ${lane.kind}" data-applies="${lane.applies.join(',')}">
     <div class="llabel">
       <span class="lrole">${lane.role}</span>
       <span class="kind ${lane.kind}">${lane.kind}</span>
-      <span class="applies">${chips}</span>
       <span class="ljoin">⊕ joins at Stage ${STAGES[entry].n} · ${STAGES[entry].name}</span>
       <span class="lsum">${lane.sum}</span>
     </div>
@@ -444,39 +584,193 @@ function laneHtml(lane){
   </div>`;
 }
 
-function renderFlow(){
+function laneVisible(l){ return !QGATE[l.role] || answers[QGATE[l.role]]; }
+
+function renderQuestions(){
+  if(!qpanelEl) return;
+  qpanelEl.innerHTML = '<span class="qlbl">Tailor the journey — answer for this customer:</span>' +
+    QDEFS.map(function(q){ var on=answers[q.key];
+      return '<button class="qtog '+(on?'yes':'no')+'" data-k="'+q.key+'">'+q.label+'<span class="qv">'+(on?'Yes':'No')+'</span></button>';
+    }).join('');
+  qpanelEl.querySelectorAll('.qtog').forEach(function(b){
+    b.onclick=function(){ answers[b.dataset.k]=!answers[b.dataset.k]; renderQuestions(); renderFlow(); renderModules(); relayout(); };
+  });
+}
+
+function swimMarkup(){
   const ordered = LANES
+    .filter(laneVisible)
     .map((l,idx)=>({l,idx,e:l.cells.findIndex(c=>c)}))
     .sort((a,b)=> a.e-b.e || a.idx-b.idx)
     .map(x=>x.l);
   const ruler = `<div class="ruler"><div class="rlabel">User · swimlane</div>` +
     STAGES.map(s=>`<div class="rstage"><div><span class="rn">${s.n}</span><span class="snm">${s.name}</span></div><div class="ssub">${s.sub}</div></div>`).join('') +
     `</div>`;
-  flowEl.className = 'swim';
-  flowEl.innerHTML = `<div class="swimi">${ruler}${ordered.map(laneHtml).join('')}</div>`;
+  return `<div class="swimi">${ruler}${ordered.map(laneHtml).join('')}</div>`;
 }
-
-function setType(t){
-  activeType = (activeType===t)?null:t;
-  document.querySelectorAll('.typechip').forEach(c=>c.classList.toggle('on', c.dataset.type===activeType));
-  document.querySelectorAll('.lane[data-applies]').forEach(tr=>{
-    const ap=tr.dataset.applies.split(',');
-    tr.classList.toggle('dim', !!activeType && !ap.includes(activeType));
-  });
-  document.querySelectorAll('.var[data-type]').forEach(v=>{
-    v.classList.toggle('dim', !!activeType && v.dataset.type!==activeType);
-  });
-  clearEl.style.display = activeType ? 'inline' : 'none';
-}
-clearEl.onclick = ()=>{ if(activeType) setType(activeType); };
+function renderFlow(){ flowEl.className = 'swim'; flowEl.innerHTML = swimMarkup(); }
 
 function copyT(btn){
   const pre = btn.parentElement.querySelector('pre');
   navigator.clipboard.writeText(pre.innerText).then(()=>{ const o=btn.textContent; btn.textContent='Copied!'; setTimeout(()=>btn.textContent=o,1400); });
 }
 
-renderTypes();
+// where the work passes from one persona to the next
+const HANDOFFS = [
+  {from:["Admin",2],               to:["Dispatcher",2],          label:"setup → dispatch"},
+  {from:["Dispatcher",3],          to:["Internal Driver",3],     label:"dispatch to drivers"},
+  {from:["Dispatcher",3],          to:["Vendor / Sub-hauler",3], label:"dispatch to vendors"},
+  {from:["Vendor / Sub-hauler",3], to:["Vendor's Driver",3],     label:"sub-dispatch"},
+  {from:["Foreman",5],             to:["Billing",5],             label:"sign-off → billing"},
+  {from:["Internal Driver",4],     to:["Billing",5],             label:"tickets → billing"},
+];
+
+function nodeBox(role, stage, root){
+  var cells=(root||document).querySelectorAll('.cell');
+  for(var k=0;k<cells.length;k++){
+    if(cells[k].dataset.role===role && +cells[k].dataset.stage===stage){
+      return (cells[k].querySelector('.fbox, .step')||cells[k]).getBoundingClientRect();
+    }
+  }
+  return null;
+}
+function drawHandoffs(swimi){
+  if(!swimi) swimi=document.querySelector('.swimi'); if(!swimi) return;
+  var base=swimi.getBoundingClientRect();
+  var NS='http://www.w3.org/2000/svg';
+  var svg=document.createElementNS(NS,'svg');
+  svg.setAttribute('class','handoffs');
+  svg.setAttribute('width', swimi.scrollWidth); svg.setAttribute('height', swimi.scrollHeight);
+  svg.style.cssText='position:absolute;left:0;top:0;pointer-events:none;z-index:0;overflow:visible;';
+  svg.innerHTML='<defs><marker id="hoah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#8aa0ac"/></marker></defs>';
+  HANDOFFS.forEach(function(ho, idx){
+    var a=nodeBox(ho.from[0],ho.from[1],swimi); var b=nodeBox(ho.to[0],ho.to[1],swimi);
+    if(!a||!b) return;
+    var ar=a.right-base.left, acy=a.top-base.top+a.height/2, ab=a.bottom-base.top;
+    var bx=b.left-base.left, by=b.top-base.top, bcx=b.left-base.left+b.width/2, bcy=b.top-base.top+b.height/2;
+    var d, lx, ly;
+    if(ho.from[1]===ho.to[1]){            // same stage: drop through the right gutter
+      var xg = ar + 9 + (idx%3)*7;
+      d='M '+ar+' '+acy+' L '+xg+' '+acy+' L '+xg+' '+(by-11)+' L '+bcx+' '+(by-11)+' L '+bcx+' '+(by-2);
+      lx=xg+5; ly=(acy+by)/2;
+    } else {                              // forward to a later stage: elbow down
+      var my=(ab+by)/2;
+      d='M '+(a.left-base.left+a.width/2)+' '+ab+' L '+(a.left-base.left+a.width/2)+' '+my+' L '+bcx+' '+my+' L '+bcx+' '+(by-2);
+      lx=bcx+6; ly=my-4;
+    }
+    var p=document.createElementNS(NS,'path');
+    p.setAttribute('d',d); p.setAttribute('fill','none'); p.setAttribute('stroke','#8aa0ac');
+    p.setAttribute('stroke-width','1.2'); p.setAttribute('marker-end','url(#hoah)'); p.setAttribute('opacity','0.75');
+    svg.appendChild(p);
+    if(ho.label){
+      var t=document.createElementNS(NS,'text');
+      t.setAttribute('x',lx); t.setAttribute('y',ly);
+      t.setAttribute('fill','#8aa0ac'); t.setAttribute('font-size','9.5'); t.setAttribute('font-weight','600');
+      t.setAttribute('font-family','-apple-system,Segoe UI,Roboto,sans-serif');
+      t.textContent=ho.label;
+      svg.appendChild(t);
+    }
+  });
+  swimi.appendChild(svg);
+}
+function relayout(){ document.querySelectorAll('svg.handoffs').forEach(function(s){s.remove();}); drawHandoffs(document.querySelector('.swimi')); }
+
+// the 6 real customer scenarios (one PDF page each via ?print=scenarios)
+const SCENARIOS = [
+  {n:1, name:"Carrier / Hauler",            sub:"own fleet only",          a:{internal:true,  vendors:false, construction:false}},
+  {n:2, name:"Broker",                      sub:"all sub-hauled",          a:{internal:false, vendors:true,  construction:false}},
+  {n:3, name:"Carrier + Broker (mixed)",    sub:"own fleet + sub-haulers",  a:{internal:true,  vendors:true,  construction:false}},
+  {n:4, name:"Construction — own fleet",    sub:"phase codes + foremen",   a:{internal:true,  vendors:false, construction:true}},
+  {n:5, name:"Construction — broker",       sub:"subs + foremen",          a:{internal:false, vendors:true,  construction:true}},
+  {n:6, name:"Construction — mixed fleet",  sub:"own + subs + foremen",    a:{internal:true,  vendors:true,  construction:true}},
+];
+function renderScenarios(){
+  var box=document.createElement('div'); box.id='scenarios';
+  SCENARIOS.forEach(function(s){
+    answers.internal=s.a.internal; answers.vendors=s.a.vendors; answers.construction=s.a.construction;
+    var sec=document.createElement('section'); sec.className='scenario';
+    sec.innerHTML='<div class="schead"><span class="scn">'+s.n+'</span><div><div class="sct">'+s.name+'</div>'+
+                  '<div class="scs">'+s.sub+'</div></div></div><div class="swim">'+swimMarkup()+'</div>';
+    box.appendChild(sec);
+  });
+  document.querySelector('.wrap').appendChild(box);
+}
+
+// answers can be preset via URL (e.g. &internal=0&vendors=1&construction=1) for per-profile exports
+["internal","vendors","construction"].forEach(function(k){ if(Q.get(k)!==null) answers[k]=Q.get(k)!=="0"; });
+function personaVisible(name){
+  if(name==='Internal Driver') return answers.internal;
+  if(name==='Foreman') return answers.construction;
+  if(name==='Vendor'||name==="Vendor's Driver"||name==='Vendor / Sub-hauler') return answers.vendors;
+  return true; // Admin, Dispatcher, Billing — always present
+}
+function renderModules(){
+  var el=document.getElementById('modcat'); if(!el) return;
+  var mods=MODULES.filter(function(m){ return !m.needs || answers[m.needs]; });
+  el.innerHTML='<h2>Training Modules</h2><div class="sub">Build each module once and assign it to the personas who need it. Expand a module to see what it should cover — this list tailors to the answers above.</div>'+
+    mods.map(function(m){
+      var who=m.who.filter(personaVisible); if(!who.length) who=m.who;
+      return '<details class="modrow" style="border-left-color:'+m.c+'">'+
+        '<summary>'+
+          '<span class="mn">M'+m.id+'</span>'+
+          '<span class="mt">'+m.name+'</span>'+
+          '<span class="mf">'+m.focus+'</span>'+
+          '<span class="mw">'+who.map(function(w){return '<span class="mwc">'+w+'</span>';}).join('')+'</span>'+
+        '</summary>'+
+        '<div class="mdetail"><div class="mdlbl">What to train</div><ul>'+
+          m.detail.map(function(d){return '<li>'+d+'</li>';}).join('')+
+        '</ul></div>'+
+      '</details>';
+    }).join('');
+}
+
+renderQuestions();
 renderFlow();
+renderModules();
+
+if(SCEN){
+  window.addEventListener('load', function(){
+    document.documentElement.style.background='#0f2129'; document.body.style.background='#0f2129';
+    var wrap=document.querySelector('.wrap'); if(wrap){ wrap.style.maxWidth='none'; wrap.style.padding='0'; }
+    // hide the interactive site chrome — the PDF is just the scenario pages
+    ['header.top','.qpanel','.legend','.insights','.ivtitle','#flow','#modcat'].forEach(function(sel){ var e=document.querySelector(sel); if(e) e.style.display='none'; });
+    renderScenarios();
+    document.querySelectorAll('#scenarios .swim').forEach(function(sw){ sw.style.overflow='visible'; sw.style.border='none'; sw.style.maxHeight='none'; });
+    setTimeout(function(){
+      var maxW=0, maxH=0;
+      document.querySelectorAll('#scenarios .scenario').forEach(function(sec){
+        var sw=sec.querySelector('.swimi'); if(sw) drawHandoffs(sw);
+        maxW=Math.max(maxW, Math.ceil(sec.scrollWidth));
+        maxH=Math.max(maxH, Math.ceil(sec.scrollHeight));
+      });
+      // page a bit taller than the tallest scenario; the dark html background fills the slack (no white, no blank pages)
+      var st=document.createElement('style');
+      st.textContent='@page{ size:'+maxW+'px '+(maxH+50)+'px; margin:0; } html{background:#0f2129;}';
+      document.head.appendChild(st);
+    }, 220);
+  });
+} else if(PRINT){
+  window.addEventListener('load', function(){
+    var wrap=document.querySelector('.wrap'); if(wrap){ wrap.style.maxWidth='none'; wrap.style.padding='44px'; }
+    var sw=document.querySelector('.swim'); if(sw){ sw.style.overflow='visible'; sw.style.border='none'; sw.style.maxHeight='none'; }
+    var qp=document.querySelector('.qpanel'); if(qp) qp.style.display='none';
+    document.documentElement.style.background='#0f2129'; document.body.style.background='#0f2129';
+    document.querySelectorAll('details').forEach(function(d){ d.open=true; });
+    document.querySelectorAll('.tpart .copy').forEach(function(b){ b.style.display='none'; });
+    setTimeout(function(){
+      relayout();
+      var W=Math.ceil(document.documentElement.scrollWidth);
+      var H=Math.ceil(document.documentElement.scrollHeight);
+      var st=document.createElement('style');
+      // margin 0 + dark html background = no white borders or clipping at the edges
+      st.textContent='@page{ size:'+W+'px '+H+'px; margin:0; }';
+      document.head.appendChild(st);
+    }, 180);
+  });
+} else {
+  window.addEventListener('load', relayout);
+  window.addEventListener('resize', function(){ clearTimeout(window.__rt); window.__rt=setTimeout(relayout, 200); });
+}
 </script>
 </body>
 </html>
