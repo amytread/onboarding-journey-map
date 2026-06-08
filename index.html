@@ -179,8 +179,8 @@
 
   /* ===== compact FLOWCHART mode (?view=flow): clean boxes, text outside ===== */
   body.flow .insights{display:none;}
-  body.flow .swimi{min-width:1880px;}
-  body.flow .ruler, body.flow .lane{grid-template-columns:200px repeat(7,240px);}
+  body.flow .swimi{min-width:2030px;}
+  body.flow .ruler, body.flow .lane{grid-template-columns:210px repeat(7,260px);}
   body.flow .lsum{display:none;}
   body.flow .cell{padding:17px 12px;}
   body.flow .rail{top:36px;transform:none;}
@@ -197,7 +197,7 @@
   body.flow .cap.start{margin-bottom:0;}
   /* uniform dark canvas — remove the panel/band backgrounds & seams */
   /* cap the flow height so it becomes the scroll box → the top ruler & left user column both stay pinned */
-  body.flow .swim{background:transparent;border:none;max-height:82vh;overflow:auto;}
+  body.flow .swim{background:transparent;border:none;max-height:90vh;overflow:auto;}
   /* sticky ruler + user/label column use the page color: opaque (hides content scrolling under them) but no visible band */
   body.flow .ruler{background:var(--navy);}
   body.flow .ruler .rlabel{background:var(--navy);}
@@ -235,7 +235,7 @@
 
   <div class="rebrand">
     <span class="rbt">Naming rebrand</span>
-    We're moving to industry terms: <b>Project → Job</b> and <b>Job → Tread</b> (Order is unchanged), so the hierarchy reads <b>Job → Order → Tread</b>. The platform still shows the old names — flagged here as <i>system: …</i>.
+    We're moving to industry terms, shown as <b>system name (new name)</b> — <b>Project (Job)</b> and <b>Job (Tread)</b>; Order is unchanged. The platform still uses the system names; the new terms are in parentheses.
   </div>
 
   <div class="legend">
@@ -291,9 +291,9 @@ const ALL = ["hauler","broker","construction"];
 
 const STAGES = [
   {n:1, name:"Get Set Up",         sub:"invite · login · users"},
-  {n:2, name:"Build the Work",     sub:"jobs · sites · rates"},
+  {n:2, name:"Build the Work",     sub:"projects · sites · rates"},
   {n:3, name:"Dispatch the Day",   sub:"orders · assign · send"},
-  {n:4, name:"Run the Tread",        sub:"field execution"},
+  {n:4, name:"Run the Job (Tread)",        sub:"field execution"},
   {n:5, name:"Approve the Work",   sub:"tickets · hours · loads"},
   {n:6, name:"Bill & Settle",      sub:"payables · settlements · invoices"},
   {n:7, name:"Reports & Insights", sub:"P&L · payroll · job-cost · exports"},
@@ -301,8 +301,8 @@ const STAGES = [
 
 const TEMPLATES = {
   welcome:{ title:"📧 Welcome email — 2 versions (new vs. existing customer)", parts:[
-    {label:"New customer (no Tread account yet)", body:"Hi [Name],\n\nWelcome to Tread! We're looking forward to working with you and your team.\n\nHere are 3 steps to get started in Tread:\n1. Log in: check your inbox for a separate invite email and click the link to activate your account (check spam if you can't find it).\n2. Upload your data: go to Settings and upload your existing data — start with at least customers, sites, equipment, materials, and users. Video + guide: https://www.loom.com/share/93b29381538143e3a1dd4f2e53e2f75a\n3. Create your first Job and Order: Jobs (the system still calls these Projects) represent your recurring work. Set up 1–3 Jobs, create an Order, and learn the basics of dispatching. Video + guide: https://www.loom.com/share/8e2c055ce4394ecab01293ba0ed291da\n\nNext step: once you've completed steps 1–3, you're ready for — inviting your subhaulers, approvals (billing & foreman), billing, reports, and data exports.\n\nSupport: Help Center https://treadtechnologiesinc.mintlify.app/ · support@tread.io · or the in-app chat bubble (top right)."},
-    {label:"Existing customer (already on Tread)", body:"Hi [Name],\n\nWelcome to Tread! We're looking forward to working with you and your team.\n\nHere are 3 steps to get started in Tread:\n1. Log in: since you're already using Tread, simply log in the same way you do today at app.tread-horizon.com\n2. Upload your data: go to Settings and upload your existing data — start with at least customers, sites, equipment, materials, and users. Video + guide: https://www.loom.com/share/93b29381538143e3a1dd4f2e53e2f75a\n3. Create your first Job and Order: Jobs (the system still calls these Projects) represent your recurring work. Set up 1–3 Jobs, create an Order, and learn the basics of dispatching. Video + guide: https://www.loom.com/share/8e2c055ce4394ecab01293ba0ed291da\n\nNext step: once you've completed steps 1–3, you're ready for — inviting your subhaulers, approvals (billing & foreman), billing, reports, and data exports.\n\nSupport: Help Center https://treadtechnologiesinc.mintlify.app/ · support@tread.io · or the in-app chat bubble (top right)."}
+    {label:"New customer (no Tread account yet)", body:"Hi [Name],\n\nWelcome to Tread! We're looking forward to working with you and your team.\n\nHere are 3 steps to get started in Tread:\n1. Log in: check your inbox for a separate invite email and click the link to activate your account (check spam if you can't find it).\n2. Upload your data: go to Settings and upload your existing data — start with at least customers, sites, equipment, materials, and users. Video + guide: https://www.loom.com/share/93b29381538143e3a1dd4f2e53e2f75a\n3. Create your first Project (Job) and Order: Projects (Jobs) represent your recurring work. Set up 1–3 Projects (Jobs), create an Order, and learn the basics of dispatching. Video + guide: https://www.loom.com/share/8e2c055ce4394ecab01293ba0ed291da\n\nNext step: once you've completed steps 1–3, you're ready for — inviting your subhaulers, approvals (billing & foreman), billing, reports, and data exports.\n\nSupport: Help Center https://treadtechnologiesinc.mintlify.app/ · support@tread.io · or the in-app chat bubble (top right)."},
+    {label:"Existing customer (already on Tread)", body:"Hi [Name],\n\nWelcome to Tread! We're looking forward to working with you and your team.\n\nHere are 3 steps to get started in Tread:\n1. Log in: since you're already using Tread, simply log in the same way you do today at app.tread-horizon.com\n2. Upload your data: go to Settings and upload your existing data — start with at least customers, sites, equipment, materials, and users. Video + guide: https://www.loom.com/share/93b29381538143e3a1dd4f2e53e2f75a\n3. Create your first Project (Job) and Order: Projects (Jobs) represent your recurring work. Set up 1–3 Projects (Jobs), create an Order, and learn the basics of dispatching. Video + guide: https://www.loom.com/share/8e2c055ce4394ecab01293ba0ed291da\n\nNext step: once you've completed steps 1–3, you're ready for — inviting your subhaulers, approvals (billing & foreman), billing, reports, and data exports.\n\nSupport: Help Center https://treadtechnologiesinc.mintlify.app/ · support@tread.io · or the in-app chat bubble (top right)."}
   ], note:"Only Step 1 (Log in) differs between the two. Sent by Tread CS at account activation."},
 
   vendorinvite:{ title:"📧 Vendor invite — customer-sent OR Tread-sent on their behalf", parts:[
@@ -323,12 +323,12 @@ const LANES = [
        eg:"A two-state hauler genuinely needed it; a construction customer used a child account for a subsidiary — the exceptions, not the default.",
        tmpl:"welcome"}),
     C(["Upload master data: customers, sites, equipment, materials, users","Set rates"],
-      {know:"Master data must exist before Jobs (system: Projects). Store PO #s in the Job External ID field (system: Project Ext ID; keeps them off the driver view).",
+      {know:"Master data must exist before Projects (Jobs). Store PO #s in the Project (Job) External ID field (keeps them off the driver view).",
        vars:[
-        {t:"construction",text:"Upload geofenced site polygons (plants/quarries) & phase codes; set the Running default at the Job level (1-load min) before mass-creating Jobs."},
+        {t:"construction",text:"Upload geofenced site polygons (plants/quarries) & phase codes; set the Running default at the Project (Job) level (1-load min) before mass-creating Projects (Jobs)."},
         {t:"broker",text:"Set vendor-default dispatch & vendor rates; consolidate vendor/driver rate if you pay them the same."},
         {t:"hauler",text:"Pair truck + trailer to a driver if you run combos."}],
-       eg:"One customer pre-loaded Jobs & materials via its ERP (e.g. Dynamics 365) integration.",
+       eg:"One customer pre-loaded Projects (Jobs) & materials via its ERP (e.g. Dynamics 365) integration.",
        res:[
         {t:"video",l:"Upload your data",u:"https://www.loom.com/share/93b29381538143e3a1dd4f2e53e2f75a"},
         {t:"guide",l:"Creating a Job",u:"https://intercom.help/tread/en/articles/8475400-creating-a-project"},
@@ -343,16 +343,16 @@ const LANES = [
 
   {role:"Dispatcher", kind:"internal", applies:ALL, sum:"Builds the recurring work and sends the daily orders.", cells:[
     N,
-    C(["Build Jobs for recurring work (system: Projects)","Set default pickup/dropoff sites"],
-      {know:"Job Ext ID (system: Project Ext ID) vs Dispatch #. Decide loads vs running vs tons up front.",
+    C(["Build Projects (Jobs) for recurring work","Set default pickup/dropoff sites"],
+      {know:"Project (Job) Ext ID vs Dispatch #. Decide loads vs running vs tons up front.",
        vars:[
         {t:"construction",text:"Add phase codes & phase-code defaults; default sites are huge here."},
         {t:"broker",text:"Set Vendor as the default for the roster."}],
        res:[
         {t:"guide",l:"Creating a Job",u:"https://intercom.help/tread/en/articles/8475400-creating-a-project"},
         {t:"video",l:"Job setup & rates",u:"https://www.loom.com/share/3adcd94dbbba4e588efc2fde7096ffdf"}]}),
-    C(["Create the Order from the Job","Treads auto-generate (one per truck) — assign each to a driver/vendor","Bulk-assign · Send all"],
-      {know:"Tread qty UOM matters. Editing the Order ≠ editing a Tread. Dispatches can't be edited once received — reassign before the Tread starts.",
+    C(["Create the Order from the Project (Job)","Jobs (Treads) auto-generate (one per truck) — assign each to a driver/vendor","Bulk-assign · Send all"],
+      {know:"Job (Tread) qty UOM matters. Editing the Order ≠ editing a Job (Tread). Dispatches can't be edited once received — reassign before it starts.",
        vars:[
         {t:"broker",text:"Assign to VENDORS, not drivers — they re-assign to their own drivers."},
         {t:"hauler",text:"Assign internal drivers or sub-haulers."},
@@ -373,7 +373,7 @@ const LANES = [
        eg:"Seen in the field: foremen set per-order to keep their mobile view clean.",
        overlap:"Order creation overlaps with <b>Dispatcher</b> — same concept, but foremen use the mobile order form, not the web flow.",
        res:[{t:"guide",l:"Foreman: create order requests",u:"https://docs.tread.ai/workflows/foreman-approval-flow-sign-off-on-driver-hours"}]}),
-    C(["View Tread progress on site"], {know:"Real-time loads / cycle on their phone."}),
+    C(["View Job (Tread) progress on site"], {know:"Real-time loads / cycle on their phone."}),
     C(["Approve driver hours (Time Logs / shifts)","Enter phase code at approval"],
       {know:"Drivers can edit their own hours; the foreman is the final field gate. NO hard gate forces a phase code yet — rely on SOP + an exception report that flags missing codes.",
        eg:"One contractor loses six figures to unallocated costs from missing phase codes — the #1 reason this must be tight.",
@@ -384,10 +384,10 @@ const LANES = [
 
   {role:"Internal Driver", kind:"internal", applies:["hauler","construction"], sum:"Runs the job in the mobile app.", cells:[
     N,N,
-    C(["Receive your Tread on mobile"], {know:"Tap Accept — dispatcher / foreman handle the rest."}),
+    C(["Receive your Job (Tread) on mobile"], {know:"Tap Accept — dispatcher / foreman handle the rest."}),
     C(["Accept → Start → End","Capture scale tickets (OCR)","Add timesheet, submit hours"],
       {know:"Submit hours at end of shift so billing isn't blocked.",
-       vars:[{t:"construction",text:"Capture the right phase code on multi-phase Treads."}],
+       vars:[{t:"construction",text:"Capture the right phase code on multi-phase Jobs (Treads)."}],
        overlap:"Identical driver-app training as <b>Vendor's Driver</b> — same app & steps. Build the driver module once and reuse for both.",
        res:[
         {t:"guide",l:"Driver one-pager (printable)",u:"https://drive.google.com/file/d/15GFFiMCiqDwlLOF65plKZFlxtO5Mv0sO/view"},
@@ -403,7 +403,7 @@ const LANES = [
        vars:[
         {t:"hauler",text:"Internal-driver shift hours."},
         {t:"broker",text:"Vendor rate vs driver rate are distinct — approve against the right one."},
-        {t:"construction",text:"Approve Tread hours by phase code."}],
+        {t:"construction",text:"Approve Job (Tread) hours by phase code."}],
        overlap:"Approvals overlap with <b>Foreman</b> — foreman signs off field hours first; Billing is the back-office gate for tickets, hours & loads.",
        res:[
         {t:"guide",l:"Approvals process (shifts/jobs/loads)",u:"https://intercom.help/tread/en/articles/14066987-understanding-the-approvals-process-for-shifts-jobs-and-loads"},
@@ -443,7 +443,7 @@ const LANES = [
         {t:"app",l:"Web login",u:"https://app.tread-horizon.com"},
         {t:"guide",l:"Driver one-pager (printable)",u:"https://drive.google.com/file/d/15GFFiMCiqDwlLOF65plKZFlxtO5Mv0sO/view"}],
        tmpl:"vendorinvite"}),
-    C(["Accept the Tread → assign to your drivers → Send all"],
+    C(["Accept the Job (Tread) → assign to your drivers → Send all"],
       {know:"Sub-dispatch on web or mobile: Accept all, Send all.",
        res:[{t:"guide",l:"Get started with Tread (sub-dispatch + videos)",u:"https://intercom.help/tread/en/articles/10105185-get-started-with-tread"}]}),
     C(["Monitor your drivers"], {know:"Their tickets flow into the customer's approval queue."}),
@@ -452,7 +452,7 @@ const LANES = [
 
   {role:"Vendor's Driver", kind:"external", applies:ALL, sum:"Onboarded by their vendor; executes jobs in the driver app.", cells:[
     N,N,
-    C(["Receive the Tread from their vendor on mobile"],
+    C(["Receive the Job (Tread) from their vendor on mobile"],
       {know:"Invited by their own company, not the customer.",
        res:[{t:"app",l:"Download the app",u:"https://link.tread.io/app"}]}),
     C(["Accept → Start → End","Scale tickets · submit hours"],
@@ -530,31 +530,31 @@ const SCEN = Q.get('print')==='scenarios'; // multi-page PDF: one page per scena
 const PRINT = Q.get('print')==='1' || SCEN;
 const MODULES_ON = Q.get('modules')==='1'; // preview overlay: which training module each step belongs to
 if(FLOW && document.body) document.body.classList.add('flow');
-const LABELW = FLOW?200:220, COLW = FLOW?240:300;
+const LABELW = FLOW?210:220, COLW = FLOW?260:300;
 
 // training modules → each (persona, stage) step belongs to one module; catalog sits under the map
 const MODULES = [
   {id:1, name:"Account & Master Data", c:"#6fcf97", who:["Admin"],
    focus:"Stand up the company and load everything Tread needs before any work is built.",
    detail:["Create the company; set hierarchy (flat vs parent/child) — split only to sequester data","Invite & role users: dispatchers, billing, drivers, foremen","Upload master data: customers, sites (with geofences), equipment/trucks, materials","Set rates (customer, vendor, driver) & key feature flags","Clean up / deactivate ex-employee logins"]},
-  {id:2, name:"Jobs & Rates", c:"#56ccf2", who:["Admin","Dispatcher"],
+  {id:2, name:"Projects (Jobs) & Rates", c:"#56ccf2", who:["Admin","Dispatcher"],
    focus:"Build the recurring work that daily orders are generated from.",
-   detail:["Create a Job (recurring work; system: Project)","Job External ID (system: Project Ext ID) vs Dispatch # (where POs live)","Default pickup/dropoff sites","Phase codes & phase-code defaults (construction)","Decide loads vs running vs tons up front"]},
+   detail:["Create a Project (Job) — recurring work","Project (Job) External ID vs Dispatch # (where POs live)","Default pickup/dropoff sites","Phase codes & phase-code defaults (construction)","Decide loads vs running vs tons up front"]},
   {id:3, name:"Dispatching", c:"#74c0fc", who:["Dispatcher","Foreman"],
-   focus:"Turn a Job into a daily Order and get it to drivers/vendors.",
-   detail:["Create an Order from a Job; editing the Order vs a Tread","Assign drivers or vendors; bulk assign; Send all","Tread quantity UOM (loads / running / tons)","Live map, breadcrumbs & order metrics; communicate changes","Reassign before a Tread starts (dispatches can't be edited once received)"]},
+   focus:"Turn a Project (Job) into a daily Order and get it to drivers/vendors.",
+   detail:["Create an Order from a Project (Job); editing the Order vs a Job (Tread)","Assign drivers or vendors; bulk assign; Send all","Job (Tread) quantity UOM (loads / running / tons)","Live map, breadcrumbs & order metrics; communicate changes","Reassign before a Job (Tread) starts (dispatches can't be edited once received)"]},
   {id:4, name:"Vendor Onboarding", c:"#ffb86b", needs:"vendors", who:["Admin","Dispatcher","Vendor"],
    focus:"Get sub-haulers and their drivers onto Tread (the customer drives this).",
    detail:["Add vendors as master data (triggers their invite) — from PRODUCTION, not Sandbox","Send invites: customer-sent vs Tread-on-behalf; bulk-upload large rosters","Use the email/SMS templates; go out days before any on-site","Vendor accepts, downloads app, sets up trucks & drivers, shares the Driver Guide","Sub-dispatch: accept → assign to own drivers → Send all"]},
   {id:5, name:"Driver App", c:"#bb8bff", who:["Internal Driver","Vendor's Driver"],
    focus:"The in-cab workflow — identical for internal and vendor drivers (build once).",
-   detail:["Download the app, phone sign-in, location permissions","Accept → Start → End a Tread","Capture scale tickets (OCR)","Add timesheets & submit hours","Capture the right phase code on multi-phase Treads"]},
+   detail:["Download the app, phone sign-in, location permissions","Accept → Start → End a Job (Tread)","Capture scale tickets (OCR)","Add timesheets & submit hours","Capture the right phase code on multi-phase Jobs (Treads)"]},
   {id:6, name:"Foreman (Field)", c:"#ff8fa3", needs:"construction", who:["Foreman"],
    focus:"The job-site lead's mobile workflow (construction).",
-   detail:["Create Orders from the mobile order form","Assign the foreman at the ORDER level (sees only their own orders)","View Tread progress on site","Approve driver hours (Time Logs / shifts)","Enter phase code at approval (no hard gate yet — SOP + exception report)"]},
+   detail:["Create Orders from the mobile order form","Assign the foreman at the ORDER level (sees only their own orders)","View Job (Tread) progress on site","Approve driver hours (Time Logs / shifts)","Enter phase code at approval (no hard gate yet — SOP + exception report)"]},
   {id:7, name:"Approvals", c:"#f2c14e", who:["Billing","Foreman"],
    focus:"Review and approve the work before it bills.",
-   detail:["Ticket review (AI ticket review + chaser)","Load confirmation","Hour approval: shift vs Tread vs phase code","Approve against the right rate (vendor rate vs driver rate)"]},
+   detail:["Ticket review (AI ticket review + chaser)","Load confirmation","Hour approval: shift vs Job (Tread) vs phase code","Approve against the right rate (vendor rate vs driver rate)"]},
   {id:8, name:"Billing & Settlements", c:"#f2994a", who:["Billing"],
    focus:"Turn approved work into payables, receivables and settlements.",
    detail:["Payable & receivable invoices","Add-ons & fuel surcharge (FSC)","Create payable & receivable settlements; pre-build vendor payables","Settlement (weekly) vs itemized (per job)"]},
@@ -661,28 +661,29 @@ function drawHandoffs(swimi){
   svg.setAttribute('width', swimi.scrollWidth); svg.setAttribute('height', swimi.scrollHeight);
   svg.style.cssText='position:absolute;left:0;top:0;pointer-events:none;z-index:0;overflow:visible;';
   svg.innerHTML='<defs><marker id="hoah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#8aa0ac"/></marker></defs>';
+  var placed={};   // stack labels when multiple handoffs target the same box
   HANDOFFS.forEach(function(ho, idx){
     var a=nodeBox(ho.from[0],ho.from[1],swimi); var b=nodeBox(ho.to[0],ho.to[1],swimi);
     if(!a||!b) return;
     var ar=a.right-base.left, acy=a.top-base.top+a.height/2, ab=a.bottom-base.top;
-    var bx=b.left-base.left, by=b.top-base.top, bcx=b.left-base.left+b.width/2, bcy=b.top-base.top+b.height/2;
-    var d, lx, ly;
+    var bx=b.left-base.left, by=b.top-base.top, bcx=b.left-base.left+b.width/2;
+    var d;
     if(ho.from[1]===ho.to[1]){            // same stage: drop through the right gutter
       var xg = ar + 9 + (idx%3)*7;
       d='M '+ar+' '+acy+' L '+xg+' '+acy+' L '+xg+' '+(by-11)+' L '+bcx+' '+(by-11)+' L '+bcx+' '+(by-2);
-      lx=xg+5; ly=(acy+by)/2;
     } else {                              // forward to a later stage: elbow down
       var my=(ab+by)/2;
       d='M '+(a.left-base.left+a.width/2)+' '+ab+' L '+(a.left-base.left+a.width/2)+' '+my+' L '+bcx+' '+my+' L '+bcx+' '+(by-2);
-      lx=bcx+6; ly=my-4;
     }
     var p=document.createElementNS(NS,'path');
     p.setAttribute('d',d); p.setAttribute('fill','none'); p.setAttribute('stroke','#8aa0ac');
     p.setAttribute('stroke-width','1.2'); p.setAttribute('marker-end','url(#hoah)'); p.setAttribute('opacity','0.75');
     svg.appendChild(p);
     if(ho.label){
+      // label sits centered just above the target box, in the clear gap (stacked if a target has 2+ incoming)
+      var tk=ho.to.join('|'); var off=(placed[tk]||0); placed[tk]=off+1;
       var t=document.createElementNS(NS,'text');
-      t.setAttribute('x',lx); t.setAttribute('y',ly);
+      t.setAttribute('x',bcx); t.setAttribute('y',by-13-off*12); t.setAttribute('text-anchor','middle');
       t.setAttribute('fill','#8aa0ac'); t.setAttribute('font-size','9.5'); t.setAttribute('font-weight','600');
       t.setAttribute('font-family','-apple-system,Segoe UI,Roboto,sans-serif');
       t.textContent=ho.label;
