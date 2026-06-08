@@ -52,6 +52,10 @@
   .qtog .qv{font-size:10px;font-weight:800;padding:1px 8px;border-radius:999px;}
   .qtog.yes{border-color:#3a6b54;} .qtog.yes .qv{background:rgba(111,207,151,.22);color:#9be8bf;}
   .qtog.no{opacity:.55;} .qtog.no .qv{background:rgba(255,140,140,.18);color:#ffb3b3;}
+  .dlbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:18px 0 0;}
+  .dlbar .dll{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted-2);}
+  .dlbar a{font-size:12.5px;font-weight:700;color:var(--ink);background:var(--navy-2);border:1px solid var(--line);border-radius:8px;padding:7px 13px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;}
+  .dlbar a:hover{border-color:var(--yellow);color:#fff;text-decoration:none;}
   .modtag{font-size:9.5px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;margin-top:11px;display:flex;align-items:center;gap:6px;color:var(--muted-2);}
   .modtag .md{width:9px;height:9px;border-radius:2px;flex:0 0 auto;}
   .fgate{margin-top:11px;font-size:11px;line-height:1.5;color:#ffd7a8;background:rgba(255,184,107,.1);border:1px solid #7a5a2e;border-left:3px solid var(--external);border-radius:7px;padding:8px 10px;}
@@ -232,6 +236,12 @@
     <div class="k"><span style="color:var(--muted-2);font-weight:800;">▶</span> start &middot; <span style="color:var(--muted-2);font-weight:800;">■</span> end of each persona's lane</div>
     <div class="k"><span style="color:var(--muted-2);font-weight:800;">→</span> thin line = handoff to the next persona</div>
     <div class="k"><span style="color:#cdbcf0;font-weight:800;">⇄</span> shared = step also needed by another persona</div>
+  </div>
+
+  <div class="dlbar">
+    <span class="dll">Download PDF</span>
+    <a href="Tread-Onboarding-Flowchart.pdf" download>⬇ Flowchart (current view)</a>
+    <a href="Tread-Onboarding-Scenarios.pdf" download>⬇ All 6 scenarios</a>
   </div>
 
   <div class="qpanel" id="qpanel"></div>
@@ -733,7 +743,7 @@ if(SCEN){
     document.documentElement.style.background='#0f2129'; document.body.style.background='#0f2129';
     var wrap=document.querySelector('.wrap'); if(wrap){ wrap.style.maxWidth='none'; wrap.style.padding='0'; }
     // hide the interactive site chrome — the PDF is just the scenario pages
-    ['header.top','.qpanel','.legend','.insights','.ivtitle','#flow','#modcat'].forEach(function(sel){ var e=document.querySelector(sel); if(e) e.style.display='none'; });
+    ['header.top','.qpanel','.dlbar','.legend','.insights','.ivtitle','#flow','#modcat'].forEach(function(sel){ var e=document.querySelector(sel); if(e) e.style.display='none'; });
     renderScenarios();
     document.querySelectorAll('#scenarios .swim').forEach(function(sw){ sw.style.overflow='visible'; sw.style.border='none'; sw.style.maxHeight='none'; });
     setTimeout(function(){
@@ -754,6 +764,7 @@ if(SCEN){
     var wrap=document.querySelector('.wrap'); if(wrap){ wrap.style.maxWidth='none'; wrap.style.padding='44px'; }
     var sw=document.querySelector('.swim'); if(sw){ sw.style.overflow='visible'; sw.style.border='none'; sw.style.maxHeight='none'; }
     var qp=document.querySelector('.qpanel'); if(qp) qp.style.display='none';
+    var db=document.querySelector('.dlbar'); if(db) db.style.display='none';
     document.documentElement.style.background='#0f2129'; document.body.style.background='#0f2129';
     document.querySelectorAll('details').forEach(function(d){ d.open=true; });
     document.querySelectorAll('.tpart .copy').forEach(function(b){ b.style.display='none'; });
