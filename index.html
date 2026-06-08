@@ -237,14 +237,14 @@
   <div class="qpanel" id="qpanel"></div>
 
   <div class="insights">
-    <div class="ih">What real onboardings show <span>· grounded in 5 sessions, May–Jun 2026: George Igel, Leah Trucking, VolkerStevin, C&amp;K Excavating, Impact</span></div>
+    <div class="ih">What real onboardings show <span>· grounded in 5 recent onboarding sessions, May–Jun 2026</span></div>
     <ul>
-      <li><b>Avoid parent/child unless data must be truly separated.</b> It adds setup complexity and users land in the wrong account; billing at the parent level isn't handled well. Only split when locations/rosters/billing genuinely need segregating (Leah's 2 states, Igel's DBM subsidiary). If unavoidable, decide <i>before</i> inviting users and watch for lingering ex-employee logins.</li>
-      <li><b>Sandbox vs Production trips teams up.</b> VolkerStevin's admin was on Sandbox; vendor invites sent there don't count. Migrate to production first.</li>
-      <li><b>Vendor onboarding is its own project.</b> 50–60 mostly 2–3-truck vendors; invites must go out days ahead — bulk-uploaded or Tread-sent on the customer's behalf — and the setup form needs to work on mobile (C&amp;K built an HTML one).</li>
-      <li><b>Phase-code compliance is the construction pain.</b> Igel loses six figures to unallocated costs; no hard gate yet, so it's SOP + exception report. Foreman set at order level; drivers can edit their hours.</li>
+      <li><b>Avoid parent/child unless data must be truly separated.</b> It adds setup complexity and users land in the wrong account; billing at the parent level isn't handled well. Only split when data genuinely must be sequestered (e.g. a two-state hauler; a construction customer's subsidiary). If unavoidable, decide <i>before</i> inviting users and watch for lingering ex-employee logins.</li>
+      <li><b>Sandbox vs Production trips teams up.</b> One customer's admin was on Sandbox; vendor invites sent there don't count. Migrate to production first.</li>
+      <li><b>Vendor onboarding is its own project.</b> 50–60 mostly 2–3-truck vendors; invites must go out days ahead — bulk-uploaded or Tread-sent on the customer's behalf — and the setup form needs to work on mobile (one customer built an HTML one).</li>
+      <li><b>Phase-code compliance is the construction pain.</b> One contractor loses six figures to unallocated costs; no hard gate yet, so it's SOP + exception report. Foreman set at order level; drivers can edit their hours.</li>
       <li><b>Go-live is high-touch and fast.</b> ~2-week timelines; Tread flies out for on-site train-the-trainer sessions covering dispatchers, foremen and vendors together.</li>
-      <li><b>Graduation is now formal.</b> "Tread University" certifies trained customers (Impact lined up as the first graduate), fed by a sales→onboarding handover doc. But baseline readiness is low — some users still can't log in.</li>
+      <li><b>Graduation is now formal.</b> "Tread University" certifies trained customers (a returning customer is lined up as the first graduate), fed by a sales→onboarding handover doc. But baseline readiness is low — some users still can't log in.</li>
     </ul>
   </div>
 
@@ -302,7 +302,7 @@ const LANES = [
     C(["Create the company & set the hierarchy: flat vs parent/child","Activate account; invite dispatchers, billing & drivers"],
       {gate:"Flat vs parent/child? Split ONLY to truly hide one location's data from another's users — otherwise keep one account.",
        know:"Default to ONE account — parent/child adds complexity & mis-invites, and parent-level billing isn't handled well. Deactivate ex-employee logins.",
-       eg:"Leah genuinely needed it (2 states); Igel a child account for its DBM subsidiary — the exceptions, not the default.",
+       eg:"A two-state hauler genuinely needed it; a construction customer used a child account for a subsidiary — the exceptions, not the default.",
        tmpl:"welcome"}),
     C(["Upload master data: customers, sites, equipment, materials, users","Set rates"],
       {know:"Master data must exist before Projects. Store PO #s in the Project External ID field (keeps them off the driver view).",
@@ -310,7 +310,7 @@ const LANES = [
         {t:"construction",text:"Upload geofenced site polygons (plants/quarries) & phase codes; set the Running default at project level (1-load min) BEFORE mass-creating projects."},
         {t:"broker",text:"Set vendor-default dispatch & vendor rates; consolidate vendor/driver rate if you pay them the same."},
         {t:"hauler",text:"Pair truck + trailer to a driver if you run combos."}],
-       eg:"VolkerStevin pre-loaded projects & materials via its Dynamics 365 integration.",
+       eg:"One customer pre-loaded projects & materials via its ERP (e.g. Dynamics 365) integration.",
        res:[
         {t:"video",l:"Upload your data",u:"https://www.loom.com/share/93b29381538143e3a1dd4f2e53e2f75a"},
         {t:"guide",l:"Creating a Project",u:"https://intercom.help/tread/en/articles/8475400-creating-a-project"},
@@ -352,13 +352,13 @@ const LANES = [
     N,N,
     C(["Create Orders from the mobile app"],
       {know:"Use the mobile-specific order form. Assign the foreman at the ORDER level (not project) so each sees only their own orders.",
-       eg:"Igel: foremen set per-order to keep their mobile view clean.",
+       eg:"Seen in the field: foremen set per-order to keep their mobile view clean.",
        overlap:"Order creation overlaps with <b>Dispatcher</b> — same concept, but foremen use the mobile order form, not the web flow.",
        res:[{t:"guide",l:"Foreman: create order requests",u:"https://docs.tread.ai/workflows/foreman-approval-flow-sign-off-on-driver-hours"}]}),
     C(["View job progress on site"], {know:"Real-time loads / cycle on their phone."}),
     C(["Approve driver hours (Time Logs / shifts)","Enter phase code at approval"],
       {know:"Drivers can edit their own hours; the foreman is the final field gate. NO hard gate forces a phase code yet — rely on SOP + an exception report that flags missing codes.",
-       eg:"Igel loses six figures to unallocated costs from missing phase codes — the #1 reason this must be tight.",
+       eg:"One contractor loses six figures to unallocated costs from missing phase codes — the #1 reason this must be tight.",
        overlap:"Approvals overlap with <b>Billing</b> — foreman signs off field hours first; Billing does the final ticket/hour/load approval.",
        res:[{t:"guide",l:"Foreman: approve driver hours",u:"https://docs.tread.ai/specialized/foreman-approve-driver-hours"}]}),
     N,
@@ -418,7 +418,7 @@ const LANES = [
        vars:[
         {t:"broker",text:"Can be 50–60 vendors — invites must go out days before any on-site session."},
         {t:"hauler",text:"Phase it: internal drivers live first, then add external haulers."}],
-       eg:"VolkerStevin: 50–60 mostly 2–3-truck vendors; C&K built a mobile HTML form to lift sign-up.",
+       eg:"One broker-style customer: 50–60 mostly 2–3-truck vendors; another built a mobile HTML form to lift sign-up.",
        res:[
         {t:"guide",l:"Vendor Guide (May 2026, mobile-friendly)",u:"https://christophesf.github.io/Tread/vendor-guide-may2026.html"},
         {t:"app",l:"Download the app",u:"https://link.tread.io/app"},
